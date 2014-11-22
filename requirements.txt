@@ -1,0 +1,10 @@
+# dev requirements, prod requirements are found in setup.py
+#
+
+pyyaml
+requests
+
+# testing tools
+pytest
+coverage
+mock
