@@ -17,7 +17,8 @@ class BuildSettingsTestCase(TestCase):
     def test_build_settings(self):
         settings = build_settings(os.getcwd())
         self.assertEqual(settings['webhooks'], [])
-        self.assertEqual(settings['tasks'], ['tox', 'flake8', 'isort -c -rc frigg tests',
+        self.assertEqual(settings['tasks'], ['tox -e py34', 'tox -e py27', 'flake8',
+                                             'isort -c -rc frigg tests',
                                              'coverage report --fail-under=80', 'coverage xml'])
 
     @skip('Mock not working')

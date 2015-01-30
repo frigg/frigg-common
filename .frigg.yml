@@ -1,5 +1,6 @@
 tasks:
- - tox
+ - tox -e py34
+ - tox -e py27
  - flake8
  - isort -c -rc frigg tests
  - coverage report --fail-under=80
