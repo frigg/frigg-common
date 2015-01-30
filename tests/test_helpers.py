@@ -1,5 +1,8 @@
 # -*- coding: utf8 -*-
-from frigg.helpers import detect_test_runners
+from datetime import datetime
+from time import sleep
+
+from frigg.helpers import cached_property, detect_test_runners, local_run
 
 
 def test_detect_test_runners():
@@ -22,3 +25,22 @@ def test_detect_test_runners():
     assert(detect_test_runners(files) == ['cargo test'])
     del files[len(files) - 1]
     assert(detect_test_runners(files) == ['jekyll build'])
+
+
+def test_local():
+    result = local_run('ls')
+    assert result.succeeded is True
+    assert result.return_code == 0
+
+
+def test_cached_property():
+    class A(object):
+        @cached_property
+        def func(self):
+            return datetime.now().microsecond
+
+    a = A()
+    first = a.func
+    sleep(0.1)
+    last = a.func
+    assert(first == last)

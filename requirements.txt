@@ -3,8 +3,10 @@
 
 pyyaml
 requests
+frigg-coverage
 
 # testing tools
 pytest
-coverage
+pytest-cov
 mock
+responses

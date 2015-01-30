@@ -1,0 +1,10 @@
+tasks:
+ - tox
+ - flake8
+ - isort -c -rc frigg tests
+ - coverage report --fail-under=80
+ - coverage xml
+
+coverage:
+  path: coverage.xml
+  parser: python
