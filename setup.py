@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='frigg-common',
-    version='0.1.0',
+    version='0.1.1',
     description='Utils for frigg apps',
     author='The frigg team',
     author_email='hi@frigg.io',
