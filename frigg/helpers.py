@@ -38,10 +38,9 @@ def local_run(command, directory=None):
 
     logger.debug('Running command: {}'.format(command))
     result = ProcessResult(command=command)
-    print(command)
 
     process = subprocess.Popen(
-        ['/bin/bash', '-i', '-c'] + command.split(' '),
+        command,
         shell=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
