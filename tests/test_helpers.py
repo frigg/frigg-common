@@ -31,6 +31,14 @@ def test_local():
     result = local_run('ls')
     assert result.succeeded is True
     assert result.return_code == 0
+    assert 'Makefile' in result.out
+
+
+def test_local_fail():
+    result = local_run('ls not-a-folder')
+    assert result.succeeded is False
+    assert result.return_code == 1
+    assert 'ls: not-a-folder: No such file or directory' in result.out
 
 
 def test_cached_property():

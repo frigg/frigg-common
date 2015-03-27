@@ -19,7 +19,8 @@ class BuildSettingsTestCase(TestCase):
         self.assertEqual(settings['webhooks'], [])
         self.assertEqual(settings['tasks'], ['tox -e py34', 'tox -e py27', 'flake8',
                                              'isort -c -rc frigg tests',
-                                             'coverage report --fail-under=80', 'coverage xml'])
+                                             'coverage combine', 'coverage report --fail-under=80',
+                                             'coverage xml'])
 
     @skip('Mock not working')
     @mock.patch('os.path.exists', lambda path: 'yaml' in path)

@@ -3,6 +3,7 @@ tasks:
  - tox -e py27
  - flake8
  - isort -c -rc frigg tests
+ - coverage combine
  - coverage report --fail-under=80
  - coverage xml
 
